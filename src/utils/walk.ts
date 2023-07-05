@@ -48,7 +48,9 @@ export async function walk(
         options.exclude,
       )
     ) {
-      continue;
+      if (!file.isDirectory) {
+        continue;
+      }
     }
     let entry: ManifestEntry;
     if (file.isFile) {
